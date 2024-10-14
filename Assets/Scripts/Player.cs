@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     float h;
     float v;
 
+    [SerializeField] private float fuerzaMovimiento;
+    [SerializeField] private float distanciaRaycast;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space)) // al precionar Space aplica salto
         {
-            PlayerBola.AddForce(direccionF * fuerza, ForceMode.Impulse);
+            if (detectaSuelo() == true)// mira a ver si detecta el suelo
+            {
+                PlayerBola.AddForce(direccionF * fuerza, ForceMode.Impulse);
+            }
+            
         }
 
        
@@ -44,4 +51,11 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private bool detectaSuelo()
+    {
+        bool resultado =  Physics.Raycast(transform.position, Vector3.down, distanciaRaycast); //Vector3.down es lo mismo que Vector3(0, -1, 0)
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
+        return resultado;
+    }
+
 }
