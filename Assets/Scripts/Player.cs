@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //PlayerBola.AddForce(Vector3.forward * 3, ForceMode.Force);
+        PlayerBola.AddForce(Vector3.forward * 3, ForceMode.Force);
     }
     private void OnTriggerEnter(Collider other)
     {
