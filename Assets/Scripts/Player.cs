@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class Player : MonoBehaviour
 {
+    // Puntuacion
+    int puntuacion;
+    TMP_Text textoPuntuacion;
+
     private Rigidbody PlayerBola;
     [SerializeField] Vector3 direccionF; // Direccion del salto
     [SerializeField] int fuerzaSalto;
@@ -50,6 +55,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+      
         if (other.gameObject.CompareTag("Coleccionable"))
         {
             Destroy(other.gameObject);
@@ -66,6 +72,9 @@ public class Player : MonoBehaviour
         {
             transform.position = posicionInicial;
         }
+        //Puntuacion
+        //puntuacion += 10;
+        //textoPuntuacion.SetText("Vidas: " + puntuacion);
     }
     private bool detectaSuelo()
     {

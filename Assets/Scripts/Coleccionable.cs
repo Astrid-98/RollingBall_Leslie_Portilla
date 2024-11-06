@@ -8,7 +8,7 @@ public class Coleccionable : MonoBehaviour
     [SerializeField] Vector3 direccionR; //direccion rotacion
 
     int velocidadR = 90; //90 frames
-    float timer = 0;
+    float timer = 0f;
     int velocidadM = 1;
 
     // Start is called before the first frame update
