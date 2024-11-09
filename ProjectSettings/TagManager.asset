@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Coleccionable
   - Checkpoint
+  - Monedas
+  - Trampa
   layers:
   - Default
   - TransparentFX
